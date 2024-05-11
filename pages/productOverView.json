@@ -1,0 +1,212 @@
+[
+    {
+        "name": [
+            {"id": 1, "name": "Earthen Bottle"},
+            {"id": 2, "name": "Nomad Tumbler"},
+            {"id": 3, "name": "Focus Paper Refill"},
+            {"id": 4, "name": "Machined Mechanical Pencil"},
+            {"id":5,"name":"Machined Mechanical Pencil"},
+            {"id":6,"name":"Machined Mechanical Pencil"},
+            {"id":7,"name":"Machined Mechanical"}
+        ],
+      "price": [{"id":1,"price":"48"},{"id":2,"price":"35"},{"id":3,"price":"89"},{"id":4,"price":"35"},{"id":5,"price":"35"},{"id":6,"price":"35"},{"id":7,"price":"35"}],
+      "href": "#",
+      "breadcrumbs": [
+        { "id": 1, "name": "Clothing", "href": "#" },
+        { "id": 2, "name": "Cotton", "href": "#" }
+      ],
+      "images": [
+        {
+          "id":1,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+          "alt": "Two each of gray, white, and black shirts laying flat."
+        },
+        {
+          "id":2,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        },
+        {
+          "id":3,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+           "id":4,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+          "alt": "Model wearing plain white basic tee."
+        },
+        {
+            "id":5,
+           "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+           "alt": "Model wearing plain white basic tee."
+         },
+         {
+          "id":6,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+          "id":7,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        }
+      ],
+      "images1": [
+        {
+          "id":1,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+          "alt": "Two each of gray, white, and black shirts laying flat."
+        },
+        {
+          "id":2,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        },
+        {
+          "id":3,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+           "id":4,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+          "alt": "Model wearing plain white basic tee."
+        },
+        {
+            "id":5,
+           "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+           "alt": "Model wearing plain white basic tee."
+         },
+         {
+          "id":6,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+          "id":7,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        }
+      ],
+      "images2": [
+        {
+          "id":1,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+          "alt": "Two each of gray, white, and black shirts laying flat."
+        },
+        {
+          "id":2,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        },
+        {
+          "id":3,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+           "id":4,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+          "alt": "Model wearing plain white basic tee."
+        },
+        {
+            "id":5,
+           "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+           "alt": "Model wearing plain white basic tee."
+         },
+         {
+          "id":6,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+          "id":7,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        }
+      ],
+      "images3": [
+        {
+          "id":1,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+          "alt": "Two each of gray, white, and black shirts laying flat."
+        },
+        {
+          "id":2,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        },
+        {
+          "id":3,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+          "alt": "Model wearing plain gray basic tee."
+        },
+        {
+           "id":4,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+          "alt": "Model wearing plain white basic tee."
+        },
+        {
+            "id":5,
+           "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+           "alt": "Model wearing plain white basic tee."
+         },
+         {
+          "id":6,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+          "alt": "Model wearing plain white basic tee."
+         },
+         {
+          "id":7,
+          "src": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+          "alt": "Model wearing plain black basic tee."
+        }
+      ],
+      "sizes": [
+        { "name": "1", "inStock": true },
+        { "name": "2", "inStock": true },
+        { "name": "3", "inStock": true },
+        { "name": "4", "inStock": true },
+        { "name": "5", "inStock": true },
+        { "name": "6", "inStock": true },
+        { "name": "7", "inStock": true },
+        { "name": "8", "inStock": true }
+      ],
+      "description": [
+        {
+          "id":1,
+          "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+            "id":2,
+            "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+            "id":3,
+            "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+            "id":4,
+            "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+            "id":5,
+            "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+          "id":6,
+          "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        },
+        {
+          "id":7,
+          "description":"The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: \"Black\". Need to add an extra pop of color to your outfit? Our white tee has you covered."
+        }
+      ],
+      "highlights": [
+        "Experience the essence of culinary excellence with our 1-liter organic cooking oil bottle. Each bottle embodies a harmonious blend of nature's finest ingredients, carefully sourced and expertly crafted. From the deep, robust flavor of cold-pressed groundnut oil to the delicate aroma of virgin coconut oil, our selection promises a journey of gastronomic delight. Sign up for our subscription service to unlock access to exclusive releases, including our upcoming Herb-Infused limited edition.."
+      ],
+      "details": "Experience the essence of culinary excellence with our 1-liter organic cooking oil bottle. Each bottle embodies a harmonious blend of nature's finest ingredients, carefully sourced and expertly crafted. From the deep, robust flavor of cold-pressed groundnut oil to the delicate aroma of virgin coconut oil, our selection promises a journey of gastronomic delight. Sign up for our subscription service to unlock access to exclusive releases, including our upcoming Herb-Infused limited edition."
+    }
+  ]
+  

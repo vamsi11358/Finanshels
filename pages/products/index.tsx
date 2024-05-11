@@ -87,7 +87,7 @@ const products = [
     const [filteredProducts, setFilteredProducts] = useState([...products]);
    
 
-    const sortProducts = (option: string) => {
+      const sortProducts = (option: string) => {
         // setSortOption(option);
         console.log(option,'option')
         setLoading(true); 

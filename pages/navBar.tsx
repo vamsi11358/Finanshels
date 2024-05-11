@@ -5,8 +5,9 @@ import { useState } from 'react'
 import CartFinal from './cartItems'
 
 const navigation = [
-  { name: 'Home', href: '/home', current: true },
-  { name: 'Products', href: '/products', current: false }
+  { name: 'Home', href: '/home', current: false },
+  { name: 'Products', href: '/products', current: false },
+  { name: 'ProductsNew', href: '/products1', current: false }
 ]
 
 function classNames(...classes: string[]) {
@@ -67,7 +68,6 @@ export default function NavBar() {
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}

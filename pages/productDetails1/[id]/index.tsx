@@ -1,47 +1,130 @@
-"use client"
-import { useState } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
 
-import NavBar from "../../navBar"
-import Details from "../../productOverView.json"
+import { useEffect, useState } from 'react'
+import { StarIcon } from '@heroicons/react/20/solid'
+import { RadioGroup } from '@headlessui/react'
 import { useRouter } from 'next/router';
 import useStore from "../../store";
+import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import NavBar from '@/pages/navBar';
 
 
-const reviews = { href: '#', average: 5, totalCount: 117 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 interface ProductOverviewProps {
-  params: {
-    id: string;
+    params: {
+      id: string;
+    };
+  }
+  interface Product {
+    id: number;
+    title: string[];
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+    rating: {
+      rate: number;
+      count: number;
+    };
+  }
+  
+  const initialProduct: Product = {
+    id: 1,
+    title: ["Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"],
+    price: 109.95,
+    description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    rating: {
+      rate: 3.9,
+      count: 120
+    }
   };
-}
-
-export default function ProductDetails({params}: ProductOverviewProps) {
-  const {updateCartData } = useStore();
-  const [selectedQuantity, setSelectedQuantity] = useState(1)
+export default function ProductDetails1() {
+  const {updateCartData ,cartData} = useStore();
   const [addedToBag, setAddedToBag] = useState(false);
-  const [itemData, setItemData] = useState<Array<{
-    name: string[];
-    href: string;
-    color: string;
-    price: string[];
-    quantity: number;
-    imageSrc: string;
-    imageAlt: string;
-  }>>([]);
+  const [data, setData] = useState<Product>(initialProduct);
+  const [selectedQuantity, setSelectedQuantity] = useState(1)
   const router = useRouter();
   const { id } = router.query; 
 
   let ID: number;
-  if (typeof id === 'string') {
-    ID = parseInt(id, 10);
-  } else {
-    ID = 1;
+  useEffect(() => {
+    const fetchData = async () => {
+      if (id && typeof id === 'string') {
+        const ID = parseInt(id, 10);
+        try {
+          const res = await axios.get(`https://fakestoreapi.com/products/${ID}`);
+          setData(res.data);
+        } catch (error) {
+          console.error('Error fetching product data:', error);
+        }
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+
+  //
+  const product = {
+    name: `${data.title}`,
+    price: `${data.price}`,
+    href: '#',
+    breadcrumbs: [
+      { id: 1, name: 'Men', href: '#' },
+      { id: 2, name: 'Clothing', href: '#' },
+    ],
+    images: [
+      {
+        src: `${data.image}`,
+        alt: 'Two each of gray, white, and black shirts laying flat.',
+      },
+      {
+        src: `${data.image}`,
+        alt: 'Model wearing plain black basic tee.',
+      },
+      {
+        src: `${data.image}`,
+        alt: 'Model wearing plain gray basic tee.',
+      },
+      {
+        src: `${data.image}`,
+        alt: 'Model wearing plain white basic tee.',
+      },
+    ],
+    colors: [
+      { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
+      { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400' },
+      { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
+    ],
+    sizes: [
+      { name: 'XXS', inStock: false },
+      { name: 'XS', inStock: true },
+      { name: 'S', inStock: true },
+      { name: 'M', inStock: true },
+      { name: 'L', inStock: true },
+      { name: 'XL', inStock: true },
+      { name: '2XL', inStock: true },
+      { name: '3XL', inStock: true },
+    ],
+    description:
+      `${data.description}`,
+    highlights: [
+      'Hand cut and sewn locally',
+      'Dyed with our proprietary colors',
+      'Pre-washed & pre-shrunk',
+      'Ultra-soft 100% cotton',
+    ],
+    details:
+     `${data.category}`,
   }
+  const reviews = { href: '#', average: parseFloat(`${data.rating.rate}`), totalCount: parseFloat(`${data.rating.count}`) }
+  //
+
   const handleChange = (e:any)=>{
     setSelectedQuantity(e.target.value)
   }
@@ -53,12 +136,8 @@ export default function ProductDetails({params}: ProductOverviewProps) {
     return true;
 };
   const handleSubmit = ()=>{
-    const filteredPrice =  Details[0].price
-      .filter((item: { id: number }) => item.id === ID)
-      .map((item: { price: string }) => item.price)
-      const filteredName =  Details[0].name
-      .filter((item: { id: number }) => item.id === ID)
-      .map((item: { name: string }) => item.name)
+    const filteredPrice =  data.price;
+      const filteredName =  data.title;
 
     const uniqueId = uuidv4();
     let obj = {
@@ -68,7 +147,7 @@ export default function ProductDetails({params}: ProductOverviewProps) {
         color: '',
         price: filteredPrice,
         quantity: selectedQuantity,
-        imageSrc: Details[0].images[ID-1].src,
+        imageSrc: data.image,
         imageAlt: 'image',
     }
     const existingCartData = localStorage.getItem("cartTest");
@@ -95,11 +174,10 @@ export default function ProductDetails({params}: ProductOverviewProps) {
     },5000)
   }
  
-  
   return (
     <>
-     <NavBar/>
-     {addedToBag && (
+    <NavBar/>
+    {addedToBag && (
      <>
           <div id="success-modal" className="fixed inset-0 z-50 overflow-auto bg-gray-900 bg-opacity-50 flex justify-center items-center">
             <div className="bg-white rounded-lg w-96 p-6">
@@ -115,12 +193,12 @@ export default function ProductDetails({params}: ProductOverviewProps) {
           </div>
       </>
      )}
-     <div className="bg-white">
+    <div className="bg-white">
       <div className="pt-6">
-      <nav aria-label="Breadcrumb">
-      <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {Details[0].breadcrumbs.map((breadcrumb,index) => (
-              <li key={breadcrumb.id+index}>
+        <nav aria-label="Breadcrumb">
+          <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            {product.breadcrumbs.map((breadcrumb) => (
+              <li key={breadcrumb.id}>
                 <div className="flex items-center">
                   <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
                     {breadcrumb.name}
@@ -138,66 +216,42 @@ export default function ProductDetails({params}: ProductOverviewProps) {
                 </div>
               </li>
             ))}
-           
             <li className="text-sm">
-              <a href={"#"} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {Details[0].name.filter((item: { id: number; })=>item.id === ID ).map((name: { name: string | number | bigint | boolean |null | undefined; },index: any)=> (
-                  <h1 key={index}>{name.name}</h1>
-                ))}
+              <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
+                {product.name}
               </a>
             </li>
           </ol>
-      </nav>
-      {/* Image gallery */}
-       <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        </nav>
+
+        {/* Image gallery */}
+        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
             <img
-              src={Details[0].images[ID-1].src}
-              alt={Details[0].images[ID-1].alt}
+              src={product.images[0].src}
+              alt={product.images[0].alt}
               className="h-full w-full object-cover object-center"
             />
-          </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={Details[0].images1[ID-1].src}
-                alt={Details[0].images[ID-1].alt}
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={Details[0].images2[ID-1].src}
-                alt={Details[0].images2[ID-1].alt}
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
             <img
-             src={Details[0].images3[ID-1].src}
-             alt={Details[0].images3[ID-1].alt}
+              src={product.images[3].src}
+              alt={product.images[3].alt}
               className="h-full w-full object-cover object-center"
             />
           </div>
-      </div>
+        </div>
 
-       {/* Product info */}
-       <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <span className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{Details[0].name.filter((item: { id: number; })=>item.id === ID ).map((name: { name: string | number | bigint | boolean |  null | undefined; },index: any)=> (
-                  <h1 key={index}>{name.name}</h1>
-            ))}</span>
-            </div>
+        {/* Product info */}
+        <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+          <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+          </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">
-              {Details[0].price.filter((item: { id: number; })=>item.id === ID ).map((price: { price: string | number | bigint | boolean  | null | undefined; },index: any)=> (
-                <span key={index}>{"$"}{price.price}</span>
-              ))}
-            </p>
+            <p className="text-3xl tracking-tight text-gray-900">{'$'}{product.price}</p>
 
             {/* Reviews */}
             <div className="mt-6">
@@ -223,7 +277,7 @@ export default function ProductDetails({params}: ProductOverviewProps) {
             </div>
 
             <form className="mt-10" onSubmit={(e) => { e.preventDefault(); }}>
-              <div className="mt-10">
+            <div className="mt-10">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-gray-900">Quantity</h3>
                 </div>
@@ -234,10 +288,9 @@ export default function ProductDetails({params}: ProductOverviewProps) {
                   />
                   </div>
               </div>
-
               <button
-                type="button"
                 onClick={handleSubmit}
+                type="submit"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Add to bag
@@ -246,46 +299,40 @@ export default function ProductDetails({params}: ProductOverviewProps) {
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-           
+            {/* Description and details */}
             <div>
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">{Details[0].description.filter((item: { id: number; })=>item.id === ID ).map((description: { description: string | number | bigint | boolean | null | undefined; },index: any)=> (
-                <span key={index}>{description.description}</span>
-              ))}</p>
+                <p className="text-base text-gray-900">{product.description}</p>
               </div>
             </div>
 
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                  {Details[0].highlights.map((highlight:any) => (
+                  {product.highlights.map((highlight) => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-10">
               <h2 className="text-sm font-medium text-gray-900">Details</h2>
 
               <div className="mt-4 space-y-6">
-                <p className="text-sm text-gray-600">{Details[0].details}</p>
+                <p className="text-sm text-gray-600">{product.details}</p>
               </div>
             </div>
           </div>
-
-
         </div>
-
       </div>
-     </div>
-
+    </div>
     </>
   )
 }

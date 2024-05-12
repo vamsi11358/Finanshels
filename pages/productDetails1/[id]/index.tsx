@@ -230,11 +230,13 @@ export default function ProductDetails1() {
             <img
               src={product.images[0].src}
               alt={product.images[0].alt}
+              loading='lazy'
               className="h-full w-full object-cover object-center"
             />
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
             <img
+              loading='lazy'
               src={product.images[3].src}
               alt={product.images[3].alt}
               className="h-full w-full object-cover object-center"

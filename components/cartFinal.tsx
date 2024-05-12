@@ -168,7 +168,7 @@ export default function CartFinal(props:any) {
                                     <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty {product.quantity}</p>
+                                    <p className="text-gray-900 sm:text-gray-900">Qty {product.quantity}</p>
                                     <input
                                        type="number"
                                         min={1}

@@ -125,11 +125,11 @@ const products = [
                 <>
                  <NavBar/>
         <div className="flex items-baseline justify-between border-b border-gray-200 pb-5 pt-2 pl-5 pr-5">
-            <input className="shadow appearance-none border rounded w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search" 
+            <input className="shadow appearance-none border rounded w-1/4 py-2 ml-5  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search" 
             onChange={(e)=>setSearchQuery(e.target.value)}
             value={searchQuery}
             />
-            <div className="flex items-center">
+            <div className="flex items-center mr-11">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -173,11 +173,6 @@ const products = [
                   </Menu.Items>
                 </Transition>
               </Menu>
-
-              <button type="button" className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7">
-                <span className="sr-only">View grid</span>
-                <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
-              </button>
               <button
                 type="button"
                 className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"

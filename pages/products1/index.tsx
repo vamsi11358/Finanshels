@@ -111,11 +111,11 @@ export default function ProductDetails1() {
         <>
           <NavBar />
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-5 pt-2 pl-5 pr-5">
-            <input className="shadow appearance-none border rounded w-1/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"
+            <input className="shadow appearance-none border rounded w-1/4 py-2 px-3 ml-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"
               onChange={(e) => handleInputChange(e)}
               value={searchQuery}
             />
-            <div className="flex items-center">
+            <div className="flex items-center mr-10">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -174,26 +174,28 @@ export default function ProductDetails1() {
               <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {currentProducts.map((product: Product) => (
                   <div key={product.id} className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                      <img
-                        src={product.image}
-                        alt={'image'}
-                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                      />
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img
+                      src={product.image}
+                      alt={'image'}
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    />
+                  </div>
+                  <div className="mt-4 flex flex-col lg:flex-row justify-between">
+                    <div className="lg:w-2/3">
+                      <h3 className="text-sm text-gray-700">
+                        <a href={`productDetails1/${product.id}`}>
+                          <span aria-hidden="true" className="absolute inset-0" />
+                          {product.title}
+                        </a>
+                      </h3>
                     </div>
-                    <div className="mt-4 flex justify-between">
-                      <div>
-                        <h3 className="text-sm text-gray-700">
-                          <a href={`productDetails1/${product.id}`}>
-                            <span aria-hidden="true" className="absolute inset-0" />
-                            {product.title}
-                          </a>
-                        </h3>
-
-                      </div>
-                      <p className="text-sm font-medium text-gray-900">{'$'}{product.price}</p>
+                    <div className="mt-2 lg:mt-0 lg:w-1/3">
+                      <p className="text-sm font-medium text-gray-900 lg:text-right">{'$'}{product.price}</p>
                     </div>
                   </div>
+                </div>         
+
                 ))}
               </div>
             </div>

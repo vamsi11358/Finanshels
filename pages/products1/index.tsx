@@ -165,7 +165,6 @@ export default function ProductDetails1() {
               //onClick={() => setMobileFiltersOpen(true)}
               >
                 <span className="sr-only">Filters</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
           </div>

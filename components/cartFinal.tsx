@@ -175,7 +175,7 @@ export default function CartFinal(props:any) {
                                         min={1}
                                         value={product.quantity}
                                         onChange={(e) => handleQuantityChange(product.id, e.target.value)}
-                                        className="w-16 text-center border border-gray-300 rounded"
+                                        className="w-16 text-center border border-gray-300 rounded text-gray-900"
                                     />
 
                                     <div className="flex">

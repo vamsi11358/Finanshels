@@ -46,7 +46,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const initialProductsPerPage = 10;
+const initialProductsPerPage = 8;
 export default function ProductDetails1() {
   const DEBOUNCE_DELAY = 2000;
   const [loading, setLoading] = useState(false);
@@ -191,7 +191,7 @@ export default function ProductDetails1() {
                         </h3>
 
                       </div>
-                      <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                      <p className="text-sm font-medium text-gray-900">{'$'}{product.price}</p>
                     </div>
                   </div>
                 ))}

@@ -24,15 +24,6 @@ export default function ProductDetails({params}: ProductOverviewProps) {
   const {updateCartData } = useStore();
   const [selectedQuantity, setSelectedQuantity] = useState(1)
   const [addedToBag, setAddedToBag] = useState(false);
-  const [itemData, setItemData] = useState<Array<{
-    name: string[];
-    href: string;
-    color: string;
-    price: string[];
-    quantity: number;
-    imageSrc: string;
-    imageAlt: string;
-  }>>([]);
   const router = useRouter();
   const { id } = router.query; 
 

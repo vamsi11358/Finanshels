@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import NavBar from "../../navBar"
 import Details from "../../productOverView.json"
 import { useRouter } from 'next/router';
-import useStore from "../../useStore";
+import useStore from "../../../useStore";
 import { v4 as uuidv4 } from 'uuid';
 
 

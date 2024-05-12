@@ -1,10 +1,12 @@
 "use client"
 import { Fragment, useEffect, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition, TransitionChild } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import useStore from './useStore';
+import useStore from '../useStore';
 
+import dynamic from 'next/dynamic'
+ 
 const products = [
     {
       id: 1,
@@ -27,7 +29,7 @@ const products = [
       imageAlt:
         'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
     },
-    // More products...
+
   ]
 
 export default function CartFinal(props:any) {
@@ -96,9 +98,10 @@ export default function CartFinal(props:any) {
   }
 
   return (
-    <Transition.Root show={props.open} as={Fragment}>
+    <>
+    <Transition show={props.open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={props.setOpen}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
@@ -108,12 +111,12 @@ export default function CartFinal(props:any) {
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-              <Transition.Child
+              <TransitionChild
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"
@@ -142,6 +145,7 @@ export default function CartFinal(props:any) {
 
                       <div className="mt-8">
                         <div className="flow-root">
+                            {cartData.length >=1 && (
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cartData.map((product:any,index:number) => (
                               <li key={product.id} className="flex py-6">
@@ -187,6 +191,7 @@ export default function CartFinal(props:any) {
                               </li>
                             ))}
                           </ul>
+)}
                         </div>
                       </div>
                     </div>
@@ -222,11 +227,12 @@ export default function CartFinal(props:any) {
                     </div>
                   </div>
                 </Dialog.Panel>
-              </Transition.Child>
+              </TransitionChild>
             </div>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
+    </>
   )
 }

@@ -10,7 +10,7 @@ import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from
 import Pagination from "../pagination";
 
 const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true, value: " " },
+  { name: 'Most Popular', href: '#', current: false, value: " " },
   { name: 'Price: Low to High', href: '#', current: false, value: " " },
   { name: 'Price: High to Low', href: '#', current: false, value: " " },
 ]

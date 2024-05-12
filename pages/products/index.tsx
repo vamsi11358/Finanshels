@@ -68,7 +68,7 @@ const products = [
     // More products...
   ]
   const sortOptions = [
-    { name: 'Most Popular', href: '#', current: true, value:" " },
+    { name: 'Most Popular', href: '#', current: false, value:" " },
     { name: 'Best Rating', href: '#', current: false,value:" " },
     { name: 'Newest', href: '#', current: false,value:" " },
     { name: 'Price: Low to High', href: '#', current: false,value:" " },

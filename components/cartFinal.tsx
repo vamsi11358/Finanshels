@@ -96,6 +96,7 @@ export default function CartFinal(props:any) {
     }
   }
   }
+  console.log(cartData[0]?.price,'price')
 
   return (
     <>
@@ -145,7 +146,7 @@ export default function CartFinal(props:any) {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                            {cartData.length >=1 && (
+                            {cartData.length >=1  && cartData[0]?.price !== '' && (
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cartData.map((product:any,index:number) => (
                               <li key={product.id} className="flex py-6">

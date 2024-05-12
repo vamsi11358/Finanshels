@@ -219,7 +219,7 @@ export default function ProductDetails({params}: ProductOverviewProps) {
                   <h3 className="text-sm font-medium text-gray-900">Quantity</h3>
                 </div>
                   <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4 text-gray">
-                  <input type="number" min="1" className="block w-full py-2 px-4 mt-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  <input type="number" min="1" className="block w-full py-2 px-4 mt-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
                     onChange={(e)=>handleChange(e)}
                     value={selectedQuantity}
                   />

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useRouter } from 'next/router';
-import useStore from "../../store";
+import useStore from "../../useStore";
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import NavBar from '@/pages/navBar';

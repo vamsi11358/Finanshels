@@ -7,7 +7,7 @@ import { Switch } from '@headlessui/react'
 import { useState } from 'react'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import useStore from '../store'
+import useStore from '../useStore'
 
 
 

@@ -69,8 +69,6 @@ const products = [
   ]
   const sortOptions = [
     { name: 'Most Popular', href: '#', current: false, value:" " },
-    { name: 'Best Rating', href: '#', current: false,value:" " },
-    { name: 'Newest', href: '#', current: false,value:" " },
     { name: 'Price: Low to High', href: '#', current: false,value:" " },
     { name: 'Price: High to Low', href: '#', current: false,value:" " },
   ]
@@ -123,14 +121,14 @@ const products = [
         <>
             {!loading && (
                 <>
-                 <NavBar/>
+        <NavBar/>
         <div className="flex items-baseline justify-between border-b border-gray-200 pb-5 pt-2 pl-5 pr-5">
-            <input className="shadow appearance-none border rounded w-1/4 py-2 ml-5  px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search" 
+            <input className="shadow appearance-none border rounded w-1/4 py-2 lg:ml-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search" 
             onChange={(e)=>setSearchQuery(e.target.value)}
             value={searchQuery}
             />
-            <div className="flex items-center mr-11">
-              <Menu as="div" className="relative inline-block text-left">
+            <div className="flex items-center lg:mr-11 sm:ml-2">
+              <Menu as="div" className="relative inline-block text-left ">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                     Sort

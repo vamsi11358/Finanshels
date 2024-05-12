@@ -111,11 +111,11 @@ export default function ProductDetails1() {
         <>
           <NavBar />
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-5 pt-2 pl-5 pr-5">
-            <input className="shadow appearance-none border rounded w-1/4 py-2 px-3 ml-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"
+            <input className="shadow appearance-none border rounded w-1/4 py-2 px-3 lg:ml-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search" type="text" placeholder="Search"
               onChange={(e) => handleInputChange(e)}
               value={searchQuery}
             />
-            <div className="flex items-center mr-10">
+            <div className="flex items-center lg:mr-10">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
